@@ -23,7 +23,7 @@ pub struct Snake {
 pub struct SnakePiece(pub u32, pub u32);
 
 impl Snake {
-    pub fn new(rows: u32, columns: u32, width: u32) -> Snake {
+    pub fn new(rows: u32, columns: u32, width: u32) -> Self {
         let mut rng = rand::thread_rng();
 
         let direction = match rng.gen_range(0, 4) {
@@ -33,7 +33,7 @@ impl Snake {
             _ => Direction::Right,
         };
 
-        Snake {
+        Self {
             parts: LinkedList::from_iter((vec![SnakePiece(columns / 2, rows / 2)]).into_iter()),
             width,
             direction,
